@@ -59,4 +59,645 @@
     .portrait-image { height:445px; position:relative; overflow:hidden; border-radius:12px; background:radial-gradient(circle at 50% 39%,#759287,#294c42 63%,#16372f); }
     .portrait-image:after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,#122b26 0,transparent 30%); pointer-events:none; }
     .portrait-image img { position:absolute; height:100%; width:100%; object-fit:cover; object-position:50% 20%; z-index:1; }
-    .portrait-fallback { position:absolute; inset:0; display:grid; place-items:center; font-size:122px; font-weight:950; letter-spacing:-.1
+    .portrait-fallback { position:absolute; inset:0; display:grid; place-items:center; font-size:122px; font-weight:950; letter-spacing:-.12em; color:#bde1c180; }
+    .portrait-footer { display:flex; justify-content:space-between; align-items:center; gap:12px; color:white; padding:17px 7px 3px; }
+    .portrait-footer strong { display:block; line-height:1.35; font-size:13px; }
+    .portrait-footer small { color:#aac8b8; display:block; font-size:10px; margin-top:4px; }
+    .portrait-footer .mini-cross { font-size:23px; color:var(--signal); }
+    .float-tag { position:absolute; z-index:2; top:28px; right:-8px; width:114px; aspect-ratio:1; border-radius:50%; background:var(--signal); color:var(--forest-dark); display:flex; align-items:center; justify-content:center; flex-direction:column; border:5px solid var(--bg); transform:rotate(10deg); text-align:center; box-shadow:0 10px 18px #0d27172b; }
+    .float-tag strong { font-size:23px; line-height:1.1; letter-spacing:-.08em; }
+    .float-tag span { font-size:9px; font-weight:900; letter-spacing:.04em; margin-top:3px; }
+    .info-bar { background:var(--forest); color:white; }
+    .info-grid { display:grid; grid-template-columns:repeat(4,1fr); padding-block:26px; }
+    .info-item { padding:3px 22px; border-left:1px solid #6e988344; }
+    .info-item:first-child { padding-left:0; border-left:0; }
+    .info-item strong { font-size:22px; letter-spacing:-.04em; line-height:1.1; color:var(--signal); display:block; }
+    .info-item small { display:block; margin-top:8px; font-size:10px; line-height:1.55; color:#c9dfd0; letter-spacing:.05em; }
+    section.block { padding:107px 0; }
+    .section-label { text-transform:uppercase; color:#6f8656; font-size:11px; font-weight:900; letter-spacing:.18em; display:block; margin-bottom:15px; }
+    .section-title { font-size:clamp(35px,4.1vw,54px); letter-spacing:-.055em; line-height:1.14; font-weight:850; margin:0 0 22px; }
+    .section-sub { color:#6b776d; font-size:15px; max-width:640px; line-height:1.9; }
+    .about-grid { display:grid; grid-template-columns:.92fr 1.08fr; gap:90px; align-items:start; }
+    .quote-line { width:64px; height:7px; background:var(--signal); border-radius:6px; margin:27px 0; }
+    .about-description { font-size:16px; color:#59685b; line-height:2; margin:0 0 22px; }
+    .about-traits { display:grid; grid-template-columns:1fr 1fr; gap:13px; margin-top:30px; }
+    .trait { border:1px solid var(--stroke); background:white; border-radius:13px; padding:17px 18px; min-height:103px; }
+    .trait b { display:block; font-size:12px; margin-bottom:7px; }
+    .trait span { color:var(--muted); display:block; font-size:12px; line-height:1.65; }
+    .skills-bg { background:#eef1e8; }
+    .section-heading-row { display:flex; align-items:end; justify-content:space-between; gap:30px; margin-bottom:34px; }
+    .section-heading-row .section-title { margin-bottom:0; }
+    .section-heading-row .section-sub { max-width:400px; margin:0 0 3px; }
+    .skill-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; max-width:900px; }
+    .skill-card { border:1px solid #dde4d7; padding:31px 27px; border-radius:15px; background:white; min-height:316px; position:relative; transition:transform .25s,box-shadow .25s; }
+    .skill-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+    .skill-number { color:#83947f; font-weight:900; font-size:11px; letter-spacing:.17em; }
+    .skill-icon { margin:36px 0 23px; width:49px; height:49px; border-radius:13px; display:grid; place-items:center; background:#eff5df; color:var(--forest); }
+    .skill-icon svg { width:26px; height:26px; }
+    .skill-card h3 { font-size:21px; margin:0 0 11px; letter-spacing:-.035em; }
+    .skill-card p { color:#6a796c; font-size:13px; line-height:1.85; margin:0; }
+    .career-grid { display:grid; grid-template-columns:.75fr 1.25fr; gap:65px; }
+    .career-intro { position:sticky; top:120px; align-self:start; }
+    .timeline { border-left:2px solid #dce4d6; padding-left:36px; }
+    .timeline-item { position:relative; border-bottom:1px solid var(--stroke); padding:0 0 38px; margin-bottom:38px; }
+    .timeline-item:last-child { border-bottom:0; margin-bottom:0; padding-bottom:0; }
+    .timeline-item:before { position:absolute; content:""; left:-46px; top:5px; width:17px; height:17px; border-radius:50%; background:var(--signal); border:4px solid var(--forest); box-shadow:0 0 0 5px var(--bg); }
+    .time { font-size:11px; font-weight:900; letter-spacing:.1em; color:#65854f; }
+    .timeline-item h3 { font-size:24px; letter-spacing:-.035em; margin:11px 0 6px; line-height:1.35; }
+    .company { color:#415b49; font-weight:800; font-size:12px; }
+    .timeline-item ul { margin:18px 0 0; padding-left:20px; }
+    .timeline-item li { color:#657268; line-height:1.9; font-size:13px; margin-bottom:8px; }
+    .approach { background:var(--forest-dark); color:white; overflow:hidden; position:relative; }
+    .approach:before { content:""; position:absolute; width:560px; height:560px; right:-155px; top:-160px; border:1px solid #78917e39; border-radius:50%; box-shadow:0 0 0 90px #759b6a08,0 0 0 170px #759b6a08; }
+    .approach .section-label { color:var(--signal); }
+    .approach .section-sub { color:#bed0c3; }
+    .approach-grid { margin-top:38px; display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#4e6b5c; border:1px solid #4e6b5c; border-radius:14px; overflow:hidden; }
+    .approach-step { position:relative; padding:30px; min-height:205px; background:var(--forest); }
+    .approach-step .step-no { font-size:11px; font-weight:950; letter-spacing:.1em; color:var(--signal); }
+    .approach-step h3 { font-size:20px; letter-spacing:-.02em; margin:37px 0 9px; }
+    .approach-step p { font-size:12px; line-height:1.85; color:#c3d3ca; margin:0; }
+    .cert-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:17px; margin-top:30px; }
+    .cert { background:#fff; border:1px solid var(--stroke); padding:28px; border-radius:14px; }
+    .cert .cert-mark { background:#f0f4e4; display:grid; place-items:center; width:46px; height:46px; font-size:22px; border-radius:11px; margin-bottom:32px; }
+    .cert small { font-weight:900; font-size:10px; letter-spacing:.13em; color:#7b9662; }
+    .cert h3 { font-size:20px; letter-spacing:-.03em; margin:10px 0 12px; line-height:1.3; }
+    .cert p { color:#65736a; font-size:12px; line-height:1.8; margin:0; }
+    .org-list { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:24px; }
+    .org { display:flex; gap:24px; padding:27px; align-items:flex-start; background:#f0f2e9; border-radius:14px; }
+    .org-number { font-weight:900; color:#799062; font-size:12px; }
+    .org h3 { font-size:16px; margin:0 0 6px; }
+    .org p { margin:0; color:var(--muted); font-size:12px; }
+    .soft-skills { margin-top:22px; color:var(--muted); font-size:12px; }
+    .soft-skills strong { color:var(--ink); }
+    .contact-wrap { padding-top:20px; padding-bottom:94px; }
+    .contact-card { display:grid; grid-template-columns:1.13fr .87fr; gap:35px; background:var(--forest); border-radius:22px; padding:58px; color:white; position:relative; overflow:hidden; }
+    .contact-card:after { content:"✳"; position:absolute; font-size:410px; line-height:1; color:#ffffff05; right:9%; top:-88px; pointer-events:none; }
+    .contact-card .section-label { color:var(--signal); }
+    .contact-card h2 { font-size:clamp(36px,4.2vw,55px); line-height:1.1; letter-spacing:-.055em; margin:0 0 17px; }
+    .contact-card p { font-size:13px; color:#c7d8ce; line-height:1.9; max-width:460px; }
+    .contact-actions { margin-top:25px; display:flex; flex-wrap:wrap; gap:12px; }
+    .contact-info { align-self:center; z-index:1; border-left:1px solid #6c94814f; padding-left:40px; }
+    .contact-info-item { border-bottom:1px solid #7ba08c3f; padding:20px 0; }
+    .contact-info-item:last-child{border-bottom:0;}
+    .contact-info-item small { display:block; font-weight:850; font-size:10px; color:#a6c0ae; text-transform:uppercase; letter-spacing:.12em; margin-bottom:8px; }
+    .contact-info-item a { font-size:14px; text-decoration:none; word-break:break-word; }
+    .contact-info-item a:hover { color:var(--signal); }
+    footer { border-top:1px solid var(--stroke); padding:26px 0; }
+    .footer-inner { display:flex; justify-content:space-between; gap:16px; align-items:center; font-size:11px; color:var(--muted); }
+    .footer-inner a { text-decoration:none; font-weight:850; color:var(--forest); }
+
+    .hero-training-link { display:inline-flex;align-items:center;gap:9px;color:var(--forest);font-size:12px;font-weight:850;text-underline-offset:5px;margin-top:19px; }
+    .pjk3-section { background:#edf1e7; padding:105px 0 112px; }
+    .pjk3-top { display:grid;grid-template-columns:1fr .85fr;gap:70px;align-items:end;margin-bottom:30px; }
+    .pjk3-top .section-sub { margin-bottom:0; }
+    .pjk3-panel { background:var(--forest);color:#fff;border-radius:22px;padding:37px 40px 38px;position:relative;overflow:hidden;box-shadow:var(--shadow); }
+    .pjk3-panel:after { content:'03';position:absolute;right:20px;top:-40px;font-size:200px;font-weight:950;color:#ffffff08;letter-spacing:-.13em;line-height:1;pointer-events:none; }
+    .pjk3-panel-head { display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:25px;border-bottom:1px solid #557c6f6c;position:relative;z-index:1; }
+    .pjk3-panel-head small { letter-spacing:.17em;font-size:10px;font-weight:900;color:var(--signal); }
+    .pjk3-chip { display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border:1px solid #91c09e66;border-radius:100px;font-size:10px;color:#c5ded0;white-space:nowrap; }
+    .pjk3-panel h3 { margin:18px 0 5px;font-size:clamp(21px,2.6vw,29px);letter-spacing:-.035em;line-height:1.3;position:relative;z-index:1; }
+    .pjk3-panel p { margin:0;color:#c3d7ce;font-size:12px;position:relative;z-index:1; }
+    .pjk3-dates { margin-top:29px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:19px;position:relative;z-index:1; }
+    .pjk3-date small { display:block;color:#a0bdad;font-size:10px;font-weight:850;letter-spacing:.14em;margin-bottom:6px;text-transform:uppercase; }
+    .pjk3-date strong { display:block;font-size:17px;line-height:1.4;letter-spacing:-.035em; }
+    .pjk3-date-divider { color:var(--signal);font-size:25px;margin-top:15px; }
+    .pjk3-minor { display:flex;flex-wrap:wrap;gap:10px;margin-top:25px;position:relative;z-index:1; }
+    .pjk3-minor [hidden] { display:none !important; }
+    .pjk3-minor span { display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:7px;background:#ffffff0e;color:#d7e7dd;font-size:11px; }
+    .pjk3-minor strong { color:var(--signal);font-weight:850; }
+    .pjk3-steps { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;margin-top:20px; }
+    .pjk3-step { position:relative;background:#fff;border-radius:15px;padding:29px 27px;border:1px solid #dce3d6;min-height:208px; }
+    .pjk3-step-num { display:block;font-weight:900;font-size:10px;color:#7d9b65;letter-spacing:.16em; }
+    .pjk3-step h3 { margin:30px 0 11px;font-size:20px;letter-spacing:-.035em;line-height:1.3; }
+    .pjk3-step p { color:#6b766c;font-size:12px;line-height:1.8;margin:0; }
+    .pjk3-gallery-head { margin:82px 0 26px;display:flex;justify-content:space-between;align-items:end;gap:30px; }
+    .pjk3-gallery-head h3 { margin:0 0 5px;letter-spacing:-.05em;font-size:clamp(28px,3.2vw,40px);line-height:1.2; }
+    .pjk3-gallery-head p { color:#6d7d70;font-size:13px;max-width:540px;margin:0; }
+    .pjk3-gallery { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px; }
+    .pjk3-photo-card { background:#fff;border:1px solid #dce5d8;border-radius:15px;overflow:hidden;min-width:0; }
+    .pjk3-photo-card[hidden] { display:none; }
+    .pjk3-photo-media { display:block;position:relative;border:0;padding:0;width:100%;aspect-ratio:1.39;overflow:hidden;background:linear-gradient(140deg,#dfe8d3,#cbdccf);color:var(--forest);text-align:left; }
+    .pjk3-photo-card:nth-child(3n+2) .pjk3-photo-media { background:linear-gradient(145deg,#e4ecd9,#dae2ce); }
+    .pjk3-photo-card:nth-child(3n+3) .pjk3-photo-media { background:linear-gradient(145deg,#e1eadd,#bdccbb); }
+    .pjk3-photo-media:not(:disabled) { cursor:zoom-in; }
+    .pjk3-photo-media:disabled { cursor:default;opacity:1; }
+    .pjk3-photo-fallback { position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;text-align:center;padding:17px; }
+    .pjk3-photo-symbol { width:57px;height:57px;border-radius:16px;border:1px solid #8ca79266;display:grid;place-items:center;font-size:29px;background:#ffffff48; }
+    .pjk3-photo-fallback span:last-child { font-size:10px;font-weight:850;letter-spacing:.08em;color:#64806b;line-height:1.5; }
+    .pjk3-photo-media img { width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0;transition:opacity .2s; }
+    .pjk3-photo-card.has-photo img { opacity:1; }
+    .pjk3-photo-media .photo-zoom { display:none;position:absolute;right:13px;bottom:13px;background:#122f27dc;color:#fff;font-size:10px;padding:7px 10px;border-radius:7px; }
+    .pjk3-photo-card.has-photo .photo-zoom { display:block; }
+    .pjk3-photo-body { padding:21px 22px 24px; }
+    .pjk3-photo-body small { font-weight:900;color:#7a9865;font-size:10px;letter-spacing:.13em; }
+    .pjk3-photo-body h4 { font-size:17px;letter-spacing:-.025em;margin:7px 0 4px; }
+    .pjk3-photo-body p { font-size:12px;color:#738174;margin:0;line-height:1.75; }
+    .pjk3-note { font-size:11px;color:#70816f;margin:19px 0 0; }
+    .credential-grid { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:31px; }
+    .credential { display:grid;grid-template-columns:minmax(160px,.80fr) 1fr;min-height:278px;overflow:hidden;background:#fff;border-radius:16px;border:1px solid var(--stroke); }
+    .credential-preview { position:relative;background:linear-gradient(155deg,#edf3e3,#d6e4d3);display:flex;align-items:center;justify-content:center;overflow:hidden;min-height:250px; }
+    .credential-preview:before { content:'';position:absolute;inset:14px;border:1px solid #98b098aa;border-radius:7px; }
+    .credential-body { padding:27px 24px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start; }
+    .credential-type { display:block;font-weight:900;letter-spacing:.12em;font-size:10px;color:#71905c;margin-bottom:12px; }
+    .credential-body h3 { font-size:21px;line-height:1.3;letter-spacing:-.04em;margin:0 0 11px; }
+    .credential-body p { font-size:12px;color:#69796a;line-height:1.7;margin:0 0 20px; }
+    .education-line { background:#eef1e8;border-radius:13px;padding:20px 25px;display:flex;align-items:center;gap:22px;margin-top:19px; }
+    .education-line .edu-symbol { font-size:26px; }
+    .education-line strong { display:block;font-size:14px; }
+    .education-line span:last-child { color:#6c796d;font-size:12px; }
+    .pjk3-lightbox { position:fixed;inset:0;z-index:100;background:#081b16ec;display:grid;place-items:center;padding:66px 25px 24px; }
+    .pjk3-lightbox[hidden] { display:none; }
+    .pjk3-lightbox-content { max-width:min(1100px,100%);max-height:calc(100vh - 130px);display:flex;flex-direction:column;gap:9px; }
+    .pjk3-lightbox img { display:block;width:auto;max-width:100%;height:auto;max-height:calc(100vh - 160px);object-fit:contain;border-radius:9px;box-shadow:0 20px 90px #0006; }
+    .pjk3-lightbox p { color:#d9e8de;font-size:12px;margin:0; }
+    .pjk3-lightbox-close { position:absolute;top:19px;right:23px;cursor:pointer;background:#fff;color:#15372c;border:0;border-radius:9px;padding:11px 15px;font-size:13px;font-weight:900; }
+    body.pjk3-modal-open { overflow:hidden; }
+    @media(max-width:1010px) {
+      .pjk3-top { gap:25px; } .pjk3-gallery { grid-template-columns:repeat(2,minmax(0,1fr)); } .credential { grid-template-columns:1fr; }
+      .credential-preview { min-height:190px; } .credential-body { min-height:211px; }
+    }
+    @media(max-width:760px) {
+      .pjk3-section { padding:74px 0 79px; } .pjk3-top { grid-template-columns:1fr;gap:18px; } .pjk3-panel { padding:26px 22px; }
+      .pjk3-dates { grid-template-columns:1fr auto 1fr;gap:7px; } .pjk3-date strong { font-size:14px; }
+      .pjk3-panel-head { gap:7px; } .pjk3-chip { font-size:9px;padding:6px 8px; }
+      .pjk3-steps { grid-template-columns:1fr;gap:9px; } .pjk3-step { min-height:auto;padding:21px 22px; } .pjk3-step h3 { margin-top:11px; }
+      .pjk3-gallery-head { display:block;margin-top:52px; }
+      .pjk3-gallery { grid-template-columns:1fr; } .pjk3-photo-media { aspect-ratio:1.65; }
+      .credential-grid { grid-template-columns:1fr; } .credential { grid-template-columns:1fr .98fr;min-height:235px; }
+      .credential-preview { min-height:230px; } .credential-body { min-height:auto;padding:17px; } .credential-body h3 { font-size:18px; }
+      .credential-body p { font-size:11px; } .education-line { gap:10px;padding:15px 17px; }
+    }
+    @media(max-width:420px) { .pjk3-panel-head { align-items:flex-start;flex-direction:column; } .pjk3-date strong { font-size:12px; } .credential { grid-template-columns:1fr; }.credential-preview{ min-height:165px;}.credential-body{padding:23px;} }
+    @media(max-width:1010px) { .nav-links { gap:14px; } .nav-links a { font-size:11px; } .hero-grid { gap:28px; } .hero h1 { font-size:clamp(43px,5vw,68px); } .about-grid { gap:45px; } .career-grid { gap:38px; } }
+    @media(max-width:760px) {
+      html{scroll-padding-top:77px;} .container { width:min(100% - 38px,600px); }
+      .top-inner { font-size:9px; } .top-right { display:none; }
+      .nav-wrap { height:68px; } .nav-toggle { display:flex; }
+      .nav-links { display:none; position:absolute; left:0; right:0; top:68px; padding:12px 19px 20px; background:var(--bg); border-bottom:1px solid var(--stroke); box-shadow:0 14px 26px #102a1c15; flex-direction:column; align-items:stretch; gap:0; }
+      .nav-links.open { display:flex; } .nav-links a { font-size:14px; padding:12px; border-bottom:1px solid var(--stroke); }
+      .nav-links a:last-child{margin-top:12px;text-align:center;border-bottom:0;}
+      .hero-grid { min-height:auto; grid-template-columns:1fr; padding-top:65px; padding-bottom:46px; gap:20px; }
+      .hero h1 { font-size:clamp(47px,9.5vw,70px); margin-top:21px; } .hero-description { font-size:14px; } .hero-tags{margin-top:26px;}
+      .portrait-stage { width:min(100%,475px); margin:auto; padding:27px 24px 21px 5px; } .portrait-image { height:390px; } .float-tag { right:-1px; width:99px; }
+      .info-grid { grid-template-columns:repeat(2,1fr); gap:15px 0; padding-block:24px; } .info-item:nth-child(odd){padding-left:0;border-left:0;} .info-item:nth-child(even){padding-left:15px;} .info-item strong{font-size:19px;} .info-item small{font-size:10px;}
+      section.block { padding:74px 0; } .about-grid,.career-grid,.contact-card { grid-template-columns:1fr; gap:23px; } .career-intro{position:static;} .about-traits{margin-top:22px;} .section-heading-row{display:block;}.section-heading-row .section-sub{margin-top:16px;}
+      .skill-grid,.cert-grid,.approach-grid{grid-template-columns:1fr;} .skill-card { min-height:auto; } .skill-icon { margin:25px 0 19px; } .approach-grid{gap:1px;} .approach-step{min-height:auto;} .approach-step h3{margin:16px 0 7px;}
+      .org-list{grid-template-columns:1fr;} .contact-card{padding:35px 25px;} .contact-info{padding-left:0;border-left:0;border-top:1px solid #6c94814f;padding-top:10px;} .contact-wrap{padding-bottom:55px;} .footer-inner{display:block;text-align:center;}
+    }
+    @media(max-width:420px) { .logo-text{font-size:10px;} .logo-text small{font-size:8px;} .hero h1{font-size:44px;} .hero-actions .button{flex:1;} .portrait-image{height:345px;} .about-traits{grid-template-columns:1fr;} .info-item strong{font-size:17px;} }
+    @media(prefers-reduced-motion:reduce){ html{scroll-behavior:auto;}*,*:before,*:after{animation:none!important;transition:none!important;} }
+    @media print { .top-strip,.nav-toggle,.header,.hero-actions,.contact-actions{display:none!important;} body{background:white;color:black;} .container{width:100%;}.hero-grid{min-height:auto;}.portrait-image{height:320px;} section.block{padding:20px 0;}.contact-card,.info-bar,.approach{background:white;color:black;border:1px solid #ccc;}.contact-info-item a{color:black;} }
+
+    .cert-feature-section{background:#f7f8f3}
+    .cert-heading-row{display:flex;justify-content:space-between;align-items:end;gap:30px}
+    .cert-heading-row .section-sub{max-width:640px}
+    .cert-summary-strip{display:flex;flex-wrap:wrap;gap:12px;margin-top:27px;margin-bottom:8px}
+    .cert-summary-strip span{padding:9px 15px;border:1px solid #d7e3cf;background:#eff5e7;border-radius:50px;color:#365447;font-weight:700;font-size:11px}
+    .cert-summary-strip strong{font-size:15px;color:#173b34;margin-right:6px}
+    .cert-featured{min-height:335px}
+    .cert-featured .credential-preview{background:#e7efe7;min-height:325px}
+    .cert-featured .credential-preview:before{display:none}
+    .cert-featured .credential-body{padding:26px 22px}
+    .cert-featured .credential-body h3{font-size:20px}
+    .cert-featured .credential-body p{margin-bottom:12px}
+    .cert-featured .cert-status-note{font-size:11px;color:#436255;border-left:3px solid #aacb72;padding-left:10px;margin-bottom:16px}
+    .support-head{display:flex;justify-content:space-between;align-items:end;gap:28px;margin:75px 0 20px}
+    .support-head h3{font-size:clamp(26px,3vw,38px);line-height:1.2;letter-spacing:-.05em;margin:8px 0 8px}
+    .support-head p{font-size:12px;color:#6e7d72;max-width:620px;line-height:1.8;margin:0}
+    .support-filters{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 23px}
+    .support-filter{border:1px solid #cfddca;background:#fff;color:#3e594a;border-radius:50px;font-size:11px;font-weight:850;padding:10px 16px;cursor:pointer}
+    .support-filter.is-active,.support-filter[aria-pressed="true"]{background:var(--forest);border-color:var(--forest);color:white}
+    .support-filter span{opacity:.8;margin-left:4px}
+    .support-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+    .support-card{min-width:0;background:white;border:1px solid #dfe7dd;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+    .support-card:hover{transform:translateY(-3px);box-shadow:0 15px 30px #19392b14}
+    .support-card[hidden]{display:none!important}
+    .support-body{padding:17px 16px 18px;display:flex;flex:1;flex-direction:column}
+    .support-body small{font-size:10px;letter-spacing:.10em;color:#6e9162;font-weight:900}
+    .support-body h4{font-size:16px;line-height:1.35;letter-spacing:-.035em;margin:8px 0}
+    .support-body p{font-size:11px;color:#6a796d;line-height:1.6;margin:0 0 16px;flex:1}
+    .cert-privacy-note{color:#698071;font-size:11px;line-height:1.7;margin-top:19px}
+    @media(max-width:1060px){.support-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:760px){.cert-heading-row,.support-head{display:block}.cert-featured{grid-template-columns:1fr 1fr}.cert-featured .credential-preview{min-height:275px}.support-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.support-body{padding:15px 13px}.support-body h4{font-size:14px}.support-head{margin-top:57px}}
+    @media(max-width:460px){.cert-featured{grid-template-columns:1fr}.cert-featured .credential-preview{height:280px;min-height:280px}.support-grid{grid-template-columns:1fr 1fr;gap:10px}.support-body h4{font-size:13px}.support-body small{font-size:8px}.support-body p{font-size:10px}.cert-summary-strip span{font-size:10px}}
+
+    .pjk3-video-wrap{margin-top:26px;display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:stretch}
+    .pjk3-video-card,.pjk3-video-info{background:#fff;border:1px solid #dce5d8;border-radius:16px;overflow:hidden}
+    .pjk3-video-card video{display:block;width:100%;height:100%;min-height:320px;background:#0f231c;object-fit:cover}
+    .pjk3-video-info{padding:28px 26px;display:flex;flex-direction:column;justify-content:center}
+    .pjk3-video-info small{font-size:10px;letter-spacing:.14em;color:#6e9162;font-weight:900}
+    .pjk3-video-info h4{font-size:27px;line-height:1.22;letter-spacing:-.045em;margin:10px 0 12px}
+    .pjk3-video-info p{font-size:13px;color:#69796a;line-height:1.85;margin:0 0 17px}
+    .pjk3-video-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+    .pjk3-video-actions a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:12px 15px;border-radius:9px;font-size:11px;font-weight:850}
+    .pjk3-video-actions .button-video{background:var(--forest);color:#fff}
+    .pjk3-video-actions .button-video-outline{border:1px solid #b8c8b5;color:var(--forest);background:#fff}
+    @media(max-width:760px){.pjk3-video-wrap{grid-template-columns:1fr;}.pjk3-video-card video{min-height:240px;}.pjk3-video-info{padding:22px 20px;}.pjk3-video-info h4{font-size:22px;}}
+
+    .pjk3-category-index{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:23px 0 16px}
+    .pjk3-category-index a{display:flex;align-items:center;gap:11px;min-height:64px;border:1px solid #dbe6d7;background:#fff;color:var(--forest);border-radius:11px;padding:12px 14px;text-decoration:none;font-size:11px;line-height:1.5;font-weight:850;transition:background .2s,transform .2s}
+    .pjk3-category-index a:hover{background:#eef6e7;transform:translateY(-2px)}
+    .pjk3-category-index a span{display:grid;place-items:center;flex:0 0 29px;height:29px;background:var(--forest);color:var(--signal);border-radius:7px;font-size:10px;font-weight:900}
+    .pjk3-gallery-section{padding:40px 0 52px;border-top:1px solid #d6e3d2;scroll-margin-top:115px}
+    .pjk3-gallery-section:first-of-type{padding-top:36px}
+    .pjk3-group-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:28px;margin-bottom:21px}
+    .pjk3-group-overline{display:block;margin-bottom:7px;color:#7b936b;font-size:10px;font-weight:900;letter-spacing:.16em}
+    .pjk3-group-heading h3{font-size:clamp(24px,2.9vw,37px);line-height:1.24;letter-spacing:-.045em;margin:0 0 9px}
+    .pjk3-group-heading p{font-size:13px;color:#687a6b;line-height:1.78;max-width:750px;margin:0}
+    .pjk3-group-count{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;text-align:center;background:#e7f0dc;color:#325643;border:1px solid #d0e2c7;border-radius:50px;font-size:10px;font-weight:900;letter-spacing:.035em;padding:8px 14px;white-space:nowrap}
+    .pjk3-gallery-section .pjk3-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+    .pjk3-gallery-section .pjk3-photo-media{aspect-ratio:1.28}
+    .pjk3-video-label{display:flex;align-items:center;gap:9px;margin:32px 0 14px;font-size:14px;font-weight:850;color:var(--forest)}
+    .pjk3-video-label span{display:grid;place-items:center;color:#e9f7dc;background:var(--forest);width:29px;height:29px;border-radius:8px;font-size:11px}
+    .pjk3-gallery-section .pjk3-video-wrap{margin-top:0}
+    @media(max-width:1080px){.pjk3-category-index{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:760px){.pjk3-gallery-section{padding:33px 0 42px;scroll-margin-top:90px}.pjk3-group-heading{flex-direction:column;gap:11px;margin-bottom:17px}.pjk3-group-count{align-self:flex-start}.pjk3-gallery-section .pjk3-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.pjk3-gallery-section .pjk3-photo-body{padding:15px 14px 17px}.pjk3-gallery-section .pjk3-photo-body h4{font-size:15px}.pjk3-gallery-section .pjk3-photo-body p{font-size:11px}}
+    @media(max-width:480px){.pjk3-category-index{grid-template-columns:1fr 1fr;gap:8px}.pjk3-category-index a{padding:10px;gap:7px;font-size:10px}.pjk3-category-index a span{flex-basis:25px;height:25px}.pjk3-gallery-section .pjk3-gallery{grid-template-columns:1fr}.pjk3-gallery-section .pjk3-photo-media{aspect-ratio:1.55}.pjk3-group-heading h3{font-size:26px}}
+
+    .safe-doc-preview{display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#eaf1e6,#d4e2d4);min-height:250px;position:relative;}
+    .safe-doc-mark{display:grid;place-items:center;width:76px;height:76px;border-radius:22px;background:#173b34;color:#d9f275;font-size:23px;font-weight:950;letter-spacing:.02em;box-shadow:0 12px 24px #173b3422;}
+    .credential-private-note,.private-doc-label{font-size:11px;line-height:1.7;color:#6c7d6e;margin-top:4px;}
+    .privacy-gallery-note{padding:12px 15px;border-left:3px solid #a8c56c;background:#f6f8f1;}
+    </style>
+</head>
+<body>
+<a class="skip" href="#main">Lewati ke konten</a>
+<div class="top-strip"><div class="container top-inner"><span>PORTOFOLIO PROFESIONAL • INDONESIA</span><span class="top-status top-right"><span class="status-dot"></span>TERBUKA UNTUK PELUANG PROFESIONAL</span></div></div>
+<header class="header">
+<div class="container nav-wrap">
+<a aria-label="Kembali ke beranda" class="logo" href="#beranda"><span class="logo-mark">KC.</span><span class="logo-text">KEVIN CLIEFF EMOR<small>K3 / HSE • KESELAMATAN KERJA</small></span></a>
+<button aria-controls="nav-links" aria-expanded="false" aria-label="Buka menu navigasi" class="nav-toggle" id="nav-toggle"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"></path></svg></button>
+<nav aria-label="Menu utama" class="nav-links" id="nav-links"><a href="#tentang">Tentang</a><a href="#keahlian">Keahlian</a><a href="#pengalaman">Pengalaman</a><a href="#pjk3">Pelatihan PJK3</a><a href="#sertifikasi">Sertifikat</a><a class="nav-cta" href="#kontak">Hubungi Saya ↗</a></nav>
+</div>
+</header>
+<main id="main">
+<section aria-labelledby="hero-title" class="hero" id="beranda"><div class="container hero-grid">
+<div>
+<span class="overline"><span class="small-line"></span>PORTOFOLIO PROFESIONAL K3 / HSE</span>
+<h1 id="hero-title">Membangun budaya<br/><span class="emphasis">keselamatan kerja.</span></h1>
+<p class="hero-description">Halo, saya <strong>Kevin Clieff Emor, S.Si.</strong> Saya telah lulus pembinaan Calon Ahli K3 Umum (AK3U) bersama PJK3 IJS pada 2026 dan memiliki pengalaman operasional serta administrasi di lingkungan pertambangan. Fokus profesional saya adalah mendukung penerapan K3/HSE, identifikasi bahaya, pengendalian risiko, dan kepatuhan prosedur keselamatan kerja.</p>
+<div class="hero-actions"><a class="button button-dark" href="#kontak">Mari Terhubung <span aria-hidden="true" class="arrow">↗</span></a><a class="button button-outline" href="mailto:kevinclieff98@gmail.com?subject=Permintaan%20CV%20Kevin%20Clieff%20Emor">Minta CV <span aria-hidden="true" class="arrow">↗</span></a></div>
+<a class="hero-training-link" href="#pjk3">Lihat dokumentasi pelatihan PJK3 <span aria-hidden="true">↗</span></a>
+<div aria-label="Bidang keahlian" class="hero-tags"><span>K3 / HSE</span><span>SMK3 • HIRADC • JSA</span><span>Operasional Pertambangan</span></div>
+</div>
+<div class="portrait-stage"><div class="portrait-outline"></div><div class="portrait-card"><div class="portrait-image"><div aria-hidden="true" class="portrait-fallback">KC</div><img alt="Foto profil Kevin Clieff Emor" onerror="this.style.display='none'" src="foto-kevin.jpg"/></div><div class="portrait-footer"><div><strong>Kevin Clieff Emor, S.Si</strong><small>Keselamatan Kerja &amp; Profesional Operasional</small></div><span aria-hidden="true" class="mini-cross">✳</span></div></div><div aria-label="Lulus pembinaan calon AK3U tahun 2026" class="float-tag"><strong>AK3U</strong><span>2026<br/>LULUS</span></div></div>
+</div></section>
+<div aria-label="Ringkasan profil" class="info-bar"><div class="container info-grid"><div class="info-item"><strong>AK3U</strong><small>LULUS PEMBINAAN • IJS 2026</small></div><div class="info-item"><strong>17</strong><small>SERTIFIKAT PENUNJANG K3</small></div><div class="info-item"><strong>S1</strong><small>ILMU FISIKA • UNIMA</small></div><div class="info-item"><strong>K3 / HSE</strong><small>FOKUS PROFESIONAL</small></div></div></div>
+<section aria-labelledby="about-title" class="block" id="tentang"><div class="container about-grid"><div><span class="section-label">01 / PROFIL</span><h2 class="section-title" id="about-title">Berorientasi pada keselamatan, ketepatan, dan tanggung jawab.</h2><div class="quote-line"></div><p class="section-sub">Fokus utama saya adalah Keselamatan dan Kesehatan Kerja (K3), dengan pengalaman operasional dan administrasi pertambangan sebagai bekal pendukung dalam dokumentasi serta koordinasi pekerjaan.</p></div><div><p class="about-description">Saya telah dinyatakan lulus pembinaan Calon Ahli K3 Umum dari PT Indotama Jasa Sertifikasi (IJS) pada 4 September 2026. Berdasarkan surat keterangan IJS, sertifikat dan/atau SKP Kemnaker masih dalam proses saat surat diterbitkan. Pengalaman administrasi pertambangan turut mendukung ketertiban dokumentasi, pelaporan, dan tindak lanjut temuan K3.</p><p class="about-description">Bidang yang telah saya pelajari melalui pembinaan dan sertifikat penunjang meliputi SMK3, HIRADC, Job Safety Analysis (JSA), inspeksi keselamatan kerja, identifikasi bahaya, pengendalian risiko, kesiapsiagaan darurat, investigasi kecelakaan, serta pemantauan kepatuhan prosedur K3.</p><div class="about-traits"><div class="trait"><b>✳ Fokus</b><span>K3 / HSE / Safety</span></div><div class="trait"><b>▣ Lingkungan kerja</b><span>Pertambangan &amp; operasional</span></div><div class="trait"><b>◫ Pendidikan</b><span>S1 Ilmu Fisika — UNIMA</span></div><div class="trait"><b>▤ Pendukung</b><span>Dokumentasi &amp; pelaporan K3</span></div></div></div></div></section>
+<section aria-labelledby="skills-title" class="block skills-bg" id="keahlian"><div class="container"><div class="section-heading-row"><div><span class="section-label">02 / KOMPETENSI</span><h2 class="section-title" id="skills-title">Bidang pemahaman K3.</h2></div><p class="section-sub">K3/HSE menjadi fokus utama. Pengetahuan dari pembinaan dan pelatihan didukung pengalaman administrasi serta operasional pertambangan.</p></div><div class="skill-grid">
+<article class="skill-card"><span class="skill-number">KOMPETENSI / 01</span><div class="skill-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m8.5 12 2.5 2.5 4.5-5"></path></svg></div><h3>K3 / HSE</h3><p>Area pembelajaran: SMK3, HIRADC/JSA, inspeksi keselamatan, identifikasi bahaya, pengendalian risiko, dan pemantauan kepatuhan prosedur K3.</p></article>
+<article class="skill-card"><span class="skill-number">KOMPETENSI / 02</span><div class="skill-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24"><path d="M8 3h8l4 4v14H4V3h4Z"></path><path d="M15 3v5h5M8 12h8M8 16h8"></path></svg></div><h3>Administrasi Operasional</h3><p>Pengalaman pendukung dalam pengelolaan dokumen, laporan operasional, koordinasi administrasi, inventaris, pengarsipan, serta dokumentasi kegiatan.</p></article>
+</div></div></section>
+<section aria-labelledby="career-title" class="block" id="pengalaman"><div class="container career-grid"><div class="career-intro"><span class="section-label">03 / PERJALANAN KARIER</span><h2 class="section-title" id="career-title">Pengalaman kerja.</h2><p class="section-sub">Latar belakang di lapangan dan administrasi menjadi fondasi dalam memahami kebutuhan operasional.</p></div><div class="timeline">
+<article class="timeline-item"><div class="time">OKTOBER 2025 — AGUSTUS 2026</div><h3>Admin</h3><span class="company">PT Karunia Permai Sentosa • Harita Group</span><ul><li>Mengelola administrasi operasional pertambangan, pengarsipan dokumen, laporan harian, dan data pendukung.</li><li>Mendukung koordinasi administrasi dan penyusunan laporan serta kelengkapan dokumen.</li></ul></article>
+<article class="timeline-item"><div class="time">FEBRUARI 2024 — FEBRUARI 2025</div><h3>Admin</h3><span class="company">PT Ruby Internasional Mining • IWIP</span><ul><li>Mengelola dokumen, catatan operasi tambang, rekap produksi, persediaan, dan laporan.</li><li>Memantau inventaris, pengadaan atau pengiriman peralatan, serta administrasi tenaga kerja.</li></ul></article>
+<article class="timeline-item"><div class="time">FEBRUARI 2023 — FEBRUARI 2024</div><h3>Driver Dump Truck</h3><span class="company">PT Ruby Internasional Mining • IWIP</span><ul><li>Mengoperasikan dump truck sesuai prosedur kerja dan melaksanakan pemeriksaan P2H.</li><li>Melaporkan kebutuhan perawatan dan potensi kerusakan unit kepada pengawas.</li></ul></article>
+</div></div></section>
+<section aria-labelledby="approach-title" class="block approach"><div class="container"><span class="section-label">04 / PENDEKATAN KERJA</span><h2 class="section-title" id="approach-title">Sistematis dalam setiap langkah.</h2><p class="section-sub">Prinsip kerja K3 dan administrasi yang mendukung proses operasional lebih tertib dan terkendali.</p><div class="approach-grid"><div class="approach-step"><span class="step-no">01 / IDENTIFIKASI</span><h3>Kenali risiko</h3><p>Memperhatikan potensi bahaya dan kebutuhan kerja melalui observasi serta pemeriksaan yang terstruktur.</p></div><div class="approach-step"><span class="step-no">02 / DOKUMENTASI</span><h3>Catat dengan tepat</h3><p>Mengorganisasi data, dokumen, serta informasi penting agar mudah ditinjau dan ditindaklanjuti.</p></div><div class="approach-step"><span class="step-no">03 / TINDAK LANJUT</span><h3>Dukung perbaikan</h3><p>Menyampaikan temuan dan membantu koordinasi untuk mendukung kepatuhan serta perbaikan kerja.</p></div></div></div></section>
+<section aria-labelledby="pjk3-title" class="pjk3-section" id="pjk3">
+<div class="container">
+<div class="pjk3-top">
+<div><span class="section-label">05 / PERJALANAN BELAJAR</span><h2 class="section-title" id="pjk3-title">Pelatihan PJK3 &amp; dokumentasi kegiatan.</h2></div>
+<p class="section-sub">Arsip perjalanan pembinaan Calon Ahli K3 Umum di Gorontalo, disusun per kategori kegiatan: seminar, praktik lapangan, foto angkatan, dan penyerahan sertifikat.</p>
+</div>
+<div class="pjk3-panel">
+<div class="pjk3-panel-head"><small>RIWAYAT PEMBINAAN • CALON AHLI K3 UMUM</small><span class="pjk3-chip">✳ Dokumentasi PJK3</span></div>
+<h3 id="pjk3-name">PT INDOTAMA JASA SERTIFIKASI (IJS)</h3>
+<p id="pjk3-location">Gorontalo</p>
+<div class="pjk3-dates">
+<div class="pjk3-date"><small>Mulai pelatihan</small><strong id="pjk3-start">24 Agustus 2026</strong></div>
+<span aria-hidden="true" class="pjk3-date-divider">→</span>
+<div class="pjk3-date"><small>Selesai pelatihan</small><strong id="pjk3-end">4 September 2026</strong></div>
+</div>
+<div class="pjk3-minor"><span>Angkatan IJS <strong id="pjk3-batch-ijs">426</strong></span><span>Angkatan Gorontalo <strong id="pjk3-batch-gorontalo">3</strong></span><span id="pjk3-duration-wrap">Durasi <strong id="pjk3-duration">12 hari (kalender)</strong></span></div>
+</div>
+<div aria-label="Jenis kegiatan dalam dokumentasi" class="pjk3-steps">
+<article class="pjk3-step"><small class="pjk3-step-num">01 / PEMBELAJARAN</small><h3>Seminar &amp; kelas K3</h3><p>Dokumentasi pembelajaran, penyampaian materi, dan kegiatan diskusi selama program.</p></article>
+<article class="pjk3-step"><small class="pjk3-step-num">02 / LAPANGAN</small><h3>Praktik Kerja Lapangan</h3><p>Dokumentasi PKL, observasi kondisi kerja, dan penerapan pemahaman keselamatan di lapangan.</p></article>
+<article class="pjk3-step"><small class="pjk3-step-num">03 / ANGKATAN</small><h3>Foto Angkatan 426 IJS &amp; Angkatan 3 Gorontalo</h3><p>Dokumentasi momen kebersamaan peserta dalam sesi foto angkatan dan penutupan perjalanan pelatihan.</p></article>
+</div>
+<div class="pjk3-gallery-head">
+<div><span class="section-label">DOKUMENTASI KEGIATAN</span><h3>Galeri berdasarkan kegiatan.</h3><p>Setiap kategori memiliki judul dan area tersendiri. Jelajahi dokumentasi seminar, PKL, foto angkatan, dan penyerahan sertifikat dari pihak IJS.</p></div>
+</div>
+<nav aria-label="Pilih kategori dokumentasi" class="pjk3-category-index">
+<a href="#galeri-seminar"><span>01</span> Seminar &amp; Pembelajaran</a>
+<a href="#galeri-pkl"><span>02</span> Praktik Kerja Lapangan</a>
+<a href="#galeri-angkatan"><span>03</span> Foto Bersama Angkatan</a>
+<a href="#galeri-penyerahan"><span>04</span> Penyerahan Sertifikat IJS</a>
+</nav>
+<section aria-labelledby="galeri-pembukaan-title" class="pjk3-gallery-section" id="galeri-pembukaan">
+<div class="pjk3-group-heading">
+<div>
+<span class="pjk3-group-overline">01 / PEMBUKAAN &amp; NARASUMBER</span>
+<h3 id="galeri-pembukaan-title">Pembukaan Pelatihan &amp; Materi dari Dinas</h3>
+<p>Dokumentasi pembukaan Pelatihan Ahli K3 Umum Lisensi Kemnaker RI Angkatan III Gorontalo serta sesi materi dari Dinas Tenaga Kerja, ESDM, dan Transmigrasi Provinsi Gorontalo oleh Bapak Wardoyo Pongoliu, Kepala Dinas.</p>
+</div>
+<span class="pjk3-group-count">4 FOTO</span>
+</div>
+<div class="pjk3-gallery">
+<article class="pjk3-photo-card" data-category="seminar">
+<button aria-label="Perbesar foto pembukaan pelatihan 1" class="pjk3-photo-media" type="button">
+<div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">▤</span><span>PEMBUKAAN / DINAS PROVINSI GORONTALO</span></div>
+<img alt="Pembukaan Pelatihan Ahli K3 Umum" loading="lazy" src="buka-disnaker-1.jpg"/>
+<span class="photo-zoom">Perbesar ↗</span></button>
+<div class="pjk3-photo-body"><small>PEMBUKAAN / 01</small><h4>Pembukaan Pelatihan Ahli K3 Umum</h4><p>Dokumentasi kegiatan pembukaan Pelatihan Ahli K3 Umum Lisensi Kemnaker RI Angkatan III Gorontalo.</p></div></article>
+<article class="pjk3-photo-card" data-category="seminar">
+<button aria-label="Perbesar foto pembukaan pelatihan 2" class="pjk3-photo-media" type="button">
+<div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">▤</span><span>PEMBUKAAN / DINAS PROVINSI GORONTALO</span></div>
+<img alt="Penyampaian Materi oleh Dinas" loading="lazy" src="buka-disnaker-2.jpg"/>
+<span class="photo-zoom">Perbesar ↗</span></button>
+<div class="pjk3-photo-body"><small>PEMBUKAAN / 02</small><h4>Penyampaian Materi oleh Dinas</h4><p>Sesi penyampaian materi dan arahan dari Dinas Tenaga Kerja, ESDM, dan Transmigrasi Provinsi Gorontalo.</p></div></article>
+<article class="pjk3-photo-card" data-category="seminar">
+<button aria-label="Perbesar foto pembukaan pelatihan 3" class="pjk3-photo-media" type="button">
+<div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">▤</span><span>PEMBUKAAN / DINAS PROVINSI GORONTALO</span></div>
+<img alt="Dokumentasi Bersama" loading="lazy" src="buka-disnaker-3.jpg"/>
+<span class="photo-zoom">Perbesar ↗</span></button>
+<div class="pjk3-photo-body"><small>PEMBUKAAN / 03</small><h4>Dokumentasi Bersama</h4><p>Foto bersama peserta dan perwakilan instansi pada rangkaian pembukaan pelatihan.</p></div></article>
+<article class="pjk3-photo-card" data-category="seminar">
+<button aria-label="Perbesar foto pembukaan pelatihan 4" class="pjk3-photo-media" type="button">
+<div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">▤</span><span>PEMBUKAAN / DINAS PROVINSI GORONTALO</span></div>
+<img alt="Peserta dan Narasumber" loading="lazy" src="buka-disnaker-4.jpg"/>
+<span class="photo-zoom">Perbesar ↗</span></button>
+<div class="pjk3-photo-body"><small>PEMBUKAAN / 04</small><h4>Peserta dan Narasumber</h4><p>Momen kebersamaan peserta dalam kegiatan pembukaan dan pembelajaran pelatihan K3.</p></div></article>
+</div>
+</section>
+<section aria-labelledby="galeri-seminar-title" class="pjk3-gallery-section" id="galeri-seminar">
+<div class="pjk3-group-heading">
+<div>
+<span class="pjk3-group-overline">01 / PEMBELAJARAN</span>
+<h3 id="galeri-seminar-title">Seminar &amp; Pembelajaran</h3>
+<p>Dokumentasi suasana kelas, penyampaian materi, diskusi, dan kebersamaan peserta selama pembinaan Calon Ahli K3 Umum.</p>
+</div>
+<span class="pjk3-group-count">9 FOTO</span>
+</div>
+<div class="pjk3-gallery">
+<article class="pjk3-photo-card" data-category="seminar">
+<button aria-label="Perbesar foto dokumentasi seminar 1" class="pjk3-photo-media" type="button">
+<div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">▤</span><span>SEMINAR / PEMBELAJARAN K3</span></div>
+<img alt="Foto suasana pembelajaran K3 di ruang pelatihan PJK3 IJS." loading="lazy" src="dokumentasi/seminar-1.jpg"/>
+<span class="photo-zoom">Perbesar ↗</span></button>
+<div class="pjk3-photo-body"><small>SEMINAR / 01</small><h4>Pembelajaran di kelas</h4><p>Peserta mengikuti penyampaian materi K3 di ruang pelatihan.</p></div></article><article class="pjk3-photo-card" data-category="seminar">
+<button aria-label="Perbesar foto dokumentasi seminar 2" class="pjk3-photo-media" type="button">
+<div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">▤</span><span>SEMINAR / PEMBELAJARAN K3</span></div>
+<img alt="Foto bersama peserta pelatihan PJK3 IJS." loading="lazy" src="dokumentasi/seminar-2.jpg"/>
+<span class="photo-zoom">Perbesar ↗</span></button>
+<div class="pjk3-photo-body"><small>SEMINAR / 02</small><h4>Dokumentasi peserta pelatihan</h4><p>Momen kebersamaan peserta setelah mengikuti rangkaian pembelajaran.</p></div></article><article class="pjk3-photo-card" data-category="seminar">
+<button aria-label="Perbesar foto dokumentasi seminar 3" class="pjk3-photo-media" type="button">
+<div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">▤</span><span>SEMINAR / PEMBELAJARAN K3</span></div>
+<img alt="Foto kelompok peserta selama pembinaan Calon AK3U." loading="lazy" src="dokumentasi/seminar-3.jpg"/>
+<span class="photo-zoom">Perbesar ↗</span></button>
+<div class="pjk3-photo-body"><small>SEMINAR / 03</small><h4>Kebersamaan peserta</h4><p>Dokumentasi kelompok peserta selama program pembinaan Calon AK3U.</p></div></article><article class="pjk3-photo-card" data-category="seminar">
+<button aria-label="Perbesar foto dokumentasi seminar 4" class="pjk3-photo-media" type="button">
+<div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">▤</span><span>SEMINAR / PEMBELAJARAN K3</span></div>
+<img alt="Foto bersama rekan peserta pelatihan K3." loading="lazy" src="dokumentasi/seminar-4.jpg"/>
+<span class="photo-zoom">Perbesar ↗</span></button>
+<div class="pjk3-photo-body"><small>SEMINAR / 04</small><h4>Foto bersama rekan pelatihan</h4><p>Momen kebersamaan peserta dalam rangkaian kegiatan pembinaan.</p></div></article><article class="pjk3-photo-card" data-category="seminar">
+<button aria-label="Perbesar foto dokumentasi seminar 5" class="pjk3-photo-media" type="button">
+<div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">▤</span><span>SEMINAR / PEMBELAJARAN K3</span></div>
+<img alt="Peserta menyimak materi pembinaan K3 di ruang kelas." loading="lazy" src="dokumentasi/seminar-5.jpg"/>
+<span class="photo-zoom">Perbesar ↗</span></button>
+<div class="pjk3-photo-body"><small>SEMINAR / 05</small><h4>Mengikuti materi pembinaan K3</h4><p>Suasana kelas saat pemateri menjelaskan materi terkait keselamatan dan kesehatan kerja.</p></div></article><article class="pjk3-photo-card" data-category="seminar">
+<button aria-label="Perbesar foto dokumentasi seminar 6" class="pjk3-photo-media" type="button">
+<div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">▤</span><span>SEMINAR / PEMBELAJARAN K3</span></div>
+<img alt="Foto kelompok peserta pelatihan PJK3 IJS." loading="lazy" src="dokumentasi/seminar-6.jpg"/>
+<span class="photo-zoom">Perbesar ↗</span></button>
+<div class="pjk3-photo-body"><small>SEMINAR / 06</small><h4>Dokumentasi kelompok pelatihan</h4><p>Foto bersama peserta sebagai bagian dari dokumentasi perjalanan pembelajaran.</p></div></article><article class="pjk3-photo-card" data-category="seminar">
+<button aria-label="Perbesar foto dokumentasi seminar 7" class="pjk3-photo-media" type="button">
+<div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">▤</span><span>SEMINAR / PEMBELAJARAN K3</span></div>
+<img alt="Pemateri menjelaskan materi manajemen risiko kepada peserta." loading="lazy" src="dokumentasi/seminar-7.jpg"/>
+<span class="photo-zoom">Perbesar ↗</span></button>
+<div class="pjk3-photo-body"><small>SEMINAR / 07</small><h4>Diskusi materi manajemen risiko</h4><p>Pemateri menyampaikan materi mengenai risk appetite, tolerance, dan acceptance.</p></div></article><article class="pjk3-photo-card" data-category="seminar">
+<button aria-label="Perbesar foto dokumentasi seminar 8" class="pjk3-photo-media" type="button">
+<div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">▤</span><span>SEMINAR / PEMBELAJARAN K3</span></div>
+<img alt="Foto bersama peserta pembinaan Calon AK3U." loading="lazy" src="dokumentasi/seminar-8.jpg"/>
+<span class="photo-zoom">Perbesar ↗</span></button>
+<div class="pjk3-photo-body"><small>SEMINAR / 08</small><h4>Kebersamaan selama pembinaan</h4><p>Dokumentasi bersama peserta dalam suasana kegiatan pelatihan.</p></div></article><article class="pjk3-photo-card" data-category="seminar">
+<button aria-label="Perbesar foto dokumentasi seminar 9" class="pjk3-photo-media" type="button">
+<div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">▤</span><span>SEMINAR / PEMBELAJARAN K3</span></div>
+<img alt="Foto bersama peserta pelatihan PJK3 IJS." loading="lazy" src="dokumentasi/seminar-9.jpg"/>
+<span class="photo-zoom">Perbesar ↗</span></button>
+<div class="pjk3-photo-body"><small>SEMINAR / 09</small><h4>Foto bersama peserta PJK3 IJS</h4><p>Momen dokumentasi bersama rekan satu angkatan selama kegiatan pembinaan.</p></div></article>
+</div>
+</section>
+<section aria-labelledby="galeri-praktik-title" class="pjk3-gallery-section" id="galeri-praktik">
+<div class="pjk3-group-heading">
+<div>
+<span class="pjk3-group-overline">02 / PRAKTIK LAPANGAN</span>
+<h3 id="galeri-praktik-title">Praktik &amp; Kunjungan Lapangan</h3>
+<p>Dokumentasi kunjungan lapangan bersama peserta pembinaan, menggunakan perlengkapan keselamatan kerja sebagai bagian dari pengenalan lingkungan operasional.</p>
+</div>
+<span class="pjk3-group-count">1 FOTO</span>
+</div>
+<div class="pjk3-gallery">
+<article class="pjk3-photo-card" data-category="praktik">
+<button aria-label="Perbesar foto praktik lapangan" class="pjk3-photo-media" type="button">
+<div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">▤</span><span>PRAKTIK / KUNJUNGAN LAPANGAN</span></div>
+<img alt="Dokumentasi peserta pembinaan K3 mengenakan seragam dan helm keselamatan saat kunjungan lapangan." loading="lazy" src="dokumentasi/praktik-1.jpg"/>
+<span class="photo-zoom">Perbesar ↗</span></button>
+<div class="pjk3-photo-body"><small>PRAKTIK LAPANGAN / 01</small><h4>Kunjungan lapangan dengan APD</h4><p>Dokumentasi bersama peserta saat kegiatan lapangan dengan mengenakan perlengkapan keselamatan, termasuk helm pelindung.</p></div>
+</article>
+</div>
+</section>
+<section aria-labelledby="galeri-pkl-title" class="pjk3-gallery-section" id="galeri-pkl">
+<div class="pjk3-group-heading">
+<div>
+<span class="pjk3-group-overline">02 / PRAKTIK LAPANGAN</span>
+<h3 id="galeri-pkl-title">Praktik Kerja Lapangan (PKL)</h3>
+<p>Dokumentasi kunjungan industri, observasi lapangan, dan pengamatan kondisi kerja.</p>
+</div>
+<span class="pjk3-group-count">5 FOTO · 1 VIDEO</span>
+</div>
+<div class="pjk3-gallery">
+<article class="pjk3-photo-card" data-category="pkl"><button aria-label="Lihat foto praktik kerja lapangan di area industri" class="pjk3-photo-media" type="button"><div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">⚒</span><span>PKL / FOTO PRAKTIK LAPANGAN</span></div><img alt="Dokumentasi Kevin Clieff Emor saat praktik kerja lapangan di area industri" loading="lazy" src="pkl-1.jpg"/><span class="photo-zoom">Perbesar ↗</span></button><div class="pjk3-photo-body"><small>PKL / 01</small><h4>Praktik kerja lapangan</h4><p>Dokumentasi individu saat kunjungan lapangan di area industri sebagai bagian dari pembelajaran AK3U.</p></div></article>
+<article class="pjk3-photo-card" data-category="pkl"><button aria-label="Lihat foto observasi lapangan bersama pembimbing" class="pjk3-photo-media" type="button"><div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">⌖</span><span>PKL / FOTO PRAKTIK LAPANGAN</span></div><img alt="Dokumentasi pengamatan lapangan bersama pembimbing saat praktik kerja lapangan" loading="lazy" src="pkl-2.jpg"/><span class="photo-zoom">Perbesar ↗</span></button><div class="pjk3-photo-body"><small>PKL / 02</small><h4>Observasi lapangan</h4><p>Dokumentasi kegiatan pengamatan lapangan dan orientasi area kerja bersama pendamping.</p></div></article>
+<article class="pjk3-photo-card" data-category="pkl"><button aria-label="Lihat foto perjalanan observasi lapangan" class="pjk3-photo-media" type="button"><div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">⇢</span><span>PKL / FOTO PRAKTIK LAPANGAN</span></div><img alt="Dokumentasi peserta berjalan menuju area observasi saat praktik kerja lapangan" loading="lazy" src="pkl-3.jpg"/><span class="photo-zoom">Perbesar ↗</span></button><div class="pjk3-photo-body"><small>PKL / 03</small><h4>Menuju area observasi</h4><p>Dokumentasi tim peserta saat berjalan menuju titik observasi pada kegiatan praktik kerja lapangan.</p></div></article>
+<article class="pjk3-photo-card" data-category="pkl"><button aria-label="Lihat foto observasi kelompok PKL" class="pjk3-photo-media" type="button"><div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">☰</span><span>PKL / FOTO PRAKTIK LAPANGAN</span></div><img alt="Dokumentasi observasi kelompok saat praktik kerja lapangan" loading="lazy" src="dokumentasi/pkl-4.jpg"/><span class="photo-zoom">Perbesar ↗</span></button><div class="pjk3-photo-body"><small>PKL / 04</small><h4>Observasi kelompok</h4><p>Dokumentasi observasi kelompok di lapangan bersama rekan peserta dan pendamping kegiatan.</p></div></article>
+<article class="pjk3-photo-card" data-category="pkl"><button aria-label="Lihat foto inspeksi peralatan di area kerja" class="pjk3-photo-media" type="button"><div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">⚙</span><span>PKL / FOTO PRAKTIK LAPANGAN</span></div><img alt="Dokumentasi inspeksi peralatan di area kerja saat praktik kerja lapangan" loading="lazy" src="dokumentasi/pkl-5.jpg"/><span class="photo-zoom">Perbesar ↗</span></button><div class="pjk3-photo-body"><small>PKL / 05</small><h4>Inspeksi area &amp; peralatan</h4><p>Dokumentasi pengamatan kondisi area kerja dan peralatan sebagai bagian dari aktivitas PKL.</p></div></article>
+</div>
+<div class="pjk3-video-label"><span aria-hidden="true">▶</span> Dokumentasi Video PKL</div><div aria-labelledby="video-pkl-title" class="pjk3-video-wrap">
+<div class="pjk3-video-card">
+<video controls="" poster="dokumentasi/pkl-video-poster.jpg" preload="metadata">
+<source src="dokumentasi/pkl-video-1.mp4" type="video/mp4"/>
+            Browser Anda belum mendukung pemutaran video HTML5.
+          </video>
+</div>
+<div class="pjk3-video-info">
+<small>VIDEO DOKUMENTASI / PKL</small>
+<h4 id="video-pkl-title">Video praktik kerja lapangan</h4>
+<p>Dokumentasi video asli kegiatan praktik kerja lapangan sebagai pelengkap galeri foto. Video ini dapat diputar langsung di website atau dibuka pada tab terpisah.</p>
+<div class="pjk3-video-actions">
+<a class="button-video" href="dokumentasi/pkl-video-1.mp4" rel="noopener noreferrer" target="_blank">Putar video ↗</a>
+<a class="button-video-outline" download="" href="dokumentasi/pkl-video-1.mp4">Unduh video ↓</a>
+</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="galeri-angkatan-title" class="pjk3-gallery-section" id="galeri-angkatan">
+<div class="pjk3-group-heading">
+<div>
+<span class="pjk3-group-overline">03 / KEBERSAMAAN</span>
+<h3 id="galeri-angkatan-title">Foto Angkatan 426 IJS / Angkatan 3 Gorontalo</h3>
+<p>Dokumentasi foto bersama peserta dalam kegiatan pembinaan Calon Ahli K3 Umum di Gorontalo.</p>
+</div>
+<span class="pjk3-group-count">9 FOTO</span>
+</div>
+<div class="pjk3-gallery">
+<article class="pjk3-photo-card" data-category="angkatan"><button aria-label="Perbesar foto bersama angkatan saat kegiatan pelatihan" class="pjk3-photo-media" type="button"><div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">♧</span><span>ANGKATAN / FOTO BERSAMA</span></div><img alt="Foto bersama angkatan saat kegiatan pelatihan IJS 426 Gorontalo Angkatan 3" loading="lazy" src="angkatan-3.jpg"/><span class="photo-zoom">Perbesar ↗</span></button><div class="pjk3-photo-body"><small>ANGKATAN / 01</small><h4>Foto bersama angkatan saat kegiatan pelatihan</h4><p>Dokumentasi bersama peserta Angkatan IJS 426 / Gorontalo Angkatan 3 pada kegiatan pelatihan.</p></div></article>
+<article class="pjk3-photo-card" data-category="angkatan"><button aria-label="Perbesar potret angkatan – sesi kebersamaan" class="pjk3-photo-media" type="button"><div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">♧</span><span>ANGKATAN / FOTO BERSAMA</span></div><img alt="Potret angkatan – sesi kebersamaan IJS 426 Gorontalo Angkatan 3" loading="lazy" src="angkatan-4.jpg"/><span class="photo-zoom">Perbesar ↗</span></button><div class="pjk3-photo-body"><small>ANGKATAN / 02</small><h4>Potret angkatan – sesi kebersamaan</h4><p>Foto bersama peserta angkatan sebagai kenangan perjalanan pembinaan Calon AK3U.</p></div></article>
+<article class="pjk3-photo-card" data-category="angkatan"><button aria-label="Perbesar kebersamaan peserta pelatihan" class="pjk3-photo-media" type="button"><div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">♧</span><span>ANGKATAN / FOTO BERSAMA</span></div><img alt="Kebersamaan peserta pelatihan IJS 426 Gorontalo Angkatan 3" loading="lazy" src="angkatan-5.jpg"/><span class="photo-zoom">Perbesar ↗</span></button><div class="pjk3-photo-body"><small>ANGKATAN / 03</small><h4>Kebersamaan peserta pelatihan</h4><p>Dokumentasi variasi foto bersama rekan-rekan angkatan pelatihan K3.</p></div></article>
+<article class="pjk3-photo-card" data-category="angkatan"><button aria-label="Perbesar foto angkatan dengan seragam k3" class="pjk3-photo-media" type="button"><div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">♧</span><span>ANGKATAN / FOTO BERSAMA</span></div><img alt="Foto angkatan dengan seragam K3 IJS 426 Gorontalo Angkatan 3" loading="lazy" src="angkatan-6.jpg"/><span class="photo-zoom">Perbesar ↗</span></button><div class="pjk3-photo-body"><small>ANGKATAN / 04</small><h4>Foto angkatan dengan seragam K3</h4><p>Kebersamaan peserta dengan seragam pelatihan K3 dalam sesi dokumentasi angkatan.</p></div></article>
+<article class="pjk3-photo-card" data-category="angkatan"><button aria-label="Perbesar solidaritas peserta angkatan ijs 426" class="pjk3-photo-media" type="button"><div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">♧</span><span>ANGKATAN / FOTO BERSAMA</span></div><img alt="Solidaritas peserta Angkatan IJS 426 IJS 426 Gorontalo Angkatan 3" loading="lazy" src="angkatan-7.jpg"/><span class="photo-zoom">Perbesar ↗</span></button><div class="pjk3-photo-body"><small>ANGKATAN / 05</small><h4>Solidaritas peserta Angkatan IJS 426</h4><p>Potret kebersamaan peserta program pembinaan K3 di Gorontalo.</p></div></article>
+<article class="pjk3-photo-card" data-category="angkatan"><button aria-label="Perbesar foto kreatif bersama peserta angkatan" class="pjk3-photo-media" type="button"><div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">♧</span><span>ANGKATAN / FOTO BERSAMA</span></div><img alt="Foto kreatif bersama peserta angkatan IJS 426 Gorontalo Angkatan 3" loading="lazy" src="angkatan-8.jpg"/><span class="photo-zoom">Perbesar ↗</span></button><div class="pjk3-photo-body"><small>ANGKATAN / 06</small><h4>Foto kreatif bersama peserta angkatan</h4><p>Dokumentasi suasana akrab dan kekompakan peserta angkatan.</p></div></article>
+<article class="pjk3-photo-card" data-category="angkatan"><button aria-label="Perbesar momen kebersamaan angkatan gorontalo 3" class="pjk3-photo-media" type="button"><div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">♧</span><span>ANGKATAN / FOTO BERSAMA</span></div><img alt="Momen kebersamaan Angkatan Gorontalo 3 IJS 426 Gorontalo Angkatan 3" loading="lazy" src="angkatan-9.jpg"/><span class="photo-zoom">Perbesar ↗</span></button><div class="pjk3-photo-body"><small>ANGKATAN / 07</small><h4>Momen kebersamaan Angkatan Gorontalo 3</h4><p>Dokumentasi kelompok peserta Angkatan IJS 426 / Gorontalo Angkatan 3.</p></div></article>
+<article class="pjk3-photo-card" data-category="angkatan"><button aria-label="Lihat foto bersama peserta angkatan" class="pjk3-photo-media" type="button"><div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">♧</span><span>ANGKATAN / FOTO BERSAMA</span></div><img alt="Foto bersama peserta angkatan pelatihan Calon Ahli K3 Umum" loading="lazy" src="dokumentasi/angkatan-1.jpg"/><span class="photo-zoom">Perbesar ↗</span></button><div class="pjk3-photo-body"><small>ANGKATAN / 08</small><h4>Foto bersama saat kunjungan lapangan</h4><p>Dokumentasi kebersamaan peserta Angkatan IJS 426 / Gorontalo Angkatan 3 saat kunjungan lapangan.</p></div></article>
+<article class="pjk3-photo-card" data-category="angkatan"><button aria-label="Lihat momen kebersamaan angkatan" class="pjk3-photo-media" type="button"><div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">✳</span><span>ANGKATAN / FOTO BERSAMA</span></div><img alt="Momen kebersamaan peserta angkatan pelatihan K3" loading="lazy" src="angkatan-2.jpg"/><span class="photo-zoom">Perbesar ↗</span></button><div class="pjk3-photo-body"><small>ANGKATAN / 09</small><h4>Momen kebersamaan di lokasi PKL</h4><p>Dokumentasi kekompakan dan kebersamaan rekan satu angkatan pada kegiatan lapangan.</p></div></article>
+</div>
+</section>
+<section aria-labelledby="galeri-penyerahan-title" class="pjk3-gallery-section" id="galeri-penyerahan">
+<div class="pjk3-group-heading">
+<div>
+<span class="pjk3-group-overline">04 / PENUTUPAN</span>
+<h3 id="galeri-penyerahan-title">Penyerahan Sertifikat dari Pihak IJS</h3>
+<p>Momen penyerahan sertifikat oleh pihak PT Indotama Jasa Sertifikasi (IJS).</p>
+</div>
+<span class="pjk3-group-count">3 FOTO</span>
+</div>
+<div class="pjk3-gallery">
+<article class="pjk3-photo-card" data-category="sertifikat"><button aria-label="Lihat foto penyerahan sertifikat dari pihak IJS" class="pjk3-photo-media" type="button"><div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">▣</span><span>IJS / PENYERAHAN SERTIFIKAT</span></div><img alt="Foto penyerahan sertifikat dari pihak IJS" loading="lazy" src="dokumentasi/serah-sertifikat-1.jpg"/><span class="photo-zoom">Perbesar ↗</span></button><div class="pjk3-photo-body"><small>PENYERAHAN SERTIFIKAT / 01</small><h4>Penyerahan sertifikat oleh pihak IJS</h4><p>Dokumentasi penyerahan sertifikat kepada peserta dari pihak PT Indotama Jasa Sertifikasi.</p></div></article>
+<article class="pjk3-photo-card" data-category="sertifikat"><button aria-label="Lihat foto penerimaan sertifikat IJS" class="pjk3-photo-media" type="button"><div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">▣</span><span>IJS / PENYERAHAN SERTIFIKAT</span></div><img alt="Foto penerimaan sertifikat dari pihak IJS" loading="lazy" src="dokumentasi/serah-sertifikat-2.jpg"/><span class="photo-zoom">Perbesar ↗</span></button><div class="pjk3-photo-body"><small>PENYERAHAN SERTIFIKAT / 02</small><h4>Momen penerimaan sertifikat</h4><p>Dokumentasi momen penerimaan sertifikat sebagai bagian dari rangkaian penutupan pelatihan.</p></div></article>
+<article class="pjk3-photo-card" data-category="sertifikat"><button aria-label="Lihat foto dokumentasi penyerahan sertifikat IJS" class="pjk3-photo-media" type="button"><div class="pjk3-photo-fallback"><span class="pjk3-photo-symbol">▣</span><span>IJS / PENYERAHAN SERTIFIKAT</span></div><img alt="Dokumentasi penyerahan sertifikat dari pihak IJS" loading="lazy" src="dokumentasi/serah-sertifikat-3.jpg"/><span class="photo-zoom">Perbesar ↗</span></button><div class="pjk3-photo-body"><small>PENYERAHAN SERTIFIKAT / 03</small><h4>Dokumentasi penutupan bersama IJS</h4><p>Foto dokumentasi penutupan dan penyerahan sertifikat oleh perwakilan pihak IJS.</p></div></article>
+</div>
+</section>
+<p class="pjk3-note">Foto seminar, pembelajaran, PKL, foto angkatan, penyerahan sertifikat, dan video berasal dari dokumentasi yang Anda kirimkan.</p>
+</div>
+<p class="pjk3-note privacy-gallery-note">Sebelum dipublikasikan secara umum, pastikan seluruh peserta dalam foto telah memberikan izin penggunaan dokumentasi.</p></section>
+<section aria-labelledby="cert-title" class="block cert-feature-section" id="sertifikasi">
+<div class="container">
+<span class="section-label">06 / DOKUMEN PROFESIONAL</span>
+<div class="cert-heading-row"><div><h2 class="section-title" id="cert-title">Sertifikasi &amp; bukti pelatihan.</h2>
+<p class="section-sub">Ringkasan dokumen pembinaan dan sertifikasi. Dokumen asli tidak ditautkan pada versi publik ini untuk melindungi nomor dokumen dan data pribadi.</p></div>
+</div>
+<div class="cert-summary-strip"><span><strong>01</strong> Surat keterangan lulus AK3U</span><span><strong>17</strong> Sertifikat penunjang K3</span></div>
+<div class="credential-grid"><article class="credential cert-featured"><div class="credential-preview safe-doc-preview"><div class="safe-doc-mark">K3</div></div><div class="credential-body"><span class="credential-type">PJK3 IJS • 04 SEPTEMBER 2026</span><h3>Surat Keterangan Lulus Pembinaan Calon AK3U</h3><p>PT Indotama Jasa Sertifikasi (IJS) · Hotel Yulia, Kota Gorontalo · 24 Agustus–4 September 2026.</p><p class="cert-status-note">Status pada surat: LULUS pembinaan. Sertifikat dan/atau SKP AK3U Kemnaker masih dalam proses saat surat diterbitkan.</p><span class="credential-private-note">Dokumen pendukung disimpan untuk verifikasi secara privat.</span></div></article><article class="credential cert-featured"><div class="credential-preview safe-doc-preview"><div class="safe-doc-mark">BNSP</div></div><div class="credential-body"><span class="credential-type">BNSP • 28 NOVEMBER 2022</span><h3>Sertifikat Kompetensi Data Management Staff</h3><p>Badan Nasional Sertifikasi Profesi (BNSP) · bidang Aplikasi Perkantoran / Office Application.</p><p class="cert-status-note">Dokumen diterbitkan pada 28 November 2022 dan mencantumkan masa berlaku 3 tahun, sehingga masa berlakunya berakhir pada 28 November 2025. Dicantumkan sebagai riwayat kompetensi terdahulu, bukan sertifikasi aktif.</p><span class="credential-private-note">Dokumen pendukung disimpan untuk verifikasi secara privat.</span></div></article></div>
+<div class="support-head"><div><span class="section-label">PELATIHAN PENUNJANG</span><h3>17 sertifikat tambahan.</h3>
+<p>Seluruh sertifikat penunjang diterbitkan oleh PT Indotama Jasa Sertifikasi (IJS) untuk kegiatan 24 Agustus–4 September 2026.</p></div>
+</div>
+<div aria-label="Filter sertifikat penunjang" class="support-filters" role="group">
+<button aria-pressed="true" class="support-filter is-active" data-support-filter="semua" type="button">Semua <span>17</span></button>
+<button aria-pressed="false" class="support-filter" data-support-filter="sistem" type="button">Sistem Manajemen</button>
+<button aria-pressed="false" class="support-filter" data-support-filter="risiko" type="button">Risiko &amp; Analisis</button>
+<button aria-pressed="false" class="support-filter" data-support-filter="darurat" type="button">Tanggap Darurat</button>
+<button aria-pressed="false" class="support-filter" data-support-filter="keselamatan" type="button">Keselamatan Kerja</button>
+</div>
+<div class="support-grid" id="support-grid">
+<article class="support-card" data-support-category="sistem"><div class="support-body"><small>HALAMAN 04 / IJS 2026</small><h4>ISO 45001:2018</h4><p>Sistem Manajemen K3</p><p class="private-doc-label">Dokumen asli tersedia untuk verifikasi secara privat.</p></div></article>
+<article class="support-card" data-support-category="risiko"><div class="support-body"><small>HALAMAN 05 / IJS 2026</small><h4>HIRADC</h4><p>Identifikasi Bahaya, Penilaian Risiko &amp; Pengendalian</p><p class="private-doc-label">Dokumen asli tersedia untuk verifikasi secara privat.</p></div></article>
+<article class="support-card" data-support-category="sistem"><div class="support-body"><small>HALAMAN 06 / IJS 2026</small><h4>ISO 14001:2015</h4><p>Sistem Manajemen Lingkungan</p><p class="private-doc-label">Dokumen asli tersedia untuk verifikasi secara privat.</p></div></article>
+<article class="support-card" data-support-category="sistem"><div class="support-body"><small>HALAMAN 07 / IJS 2026</small><h4>ISO 9001:2015</h4><p>Sistem Manajemen Mutu</p><p class="private-doc-label">Dokumen asli tersedia untuk verifikasi secara privat.</p></div></article>
+<article class="support-card" data-support-category="risiko"><div class="support-body"><small>HALAMAN 08 / IJS 2026</small><h4>ISO 31000:2018</h4><p>Manajemen Risiko</p><p class="private-doc-label">Dokumen asli tersedia untuk verifikasi secara privat.</p></div></article>
+<article class="support-card" data-support-category="risiko"><div class="support-body"><small>HALAMAN 09 / IJS 2026</small><h4>MSDS</h4><p>Material Safety Data Sheet</p><p class="private-doc-label">Dokumen asli tersedia untuk verifikasi secara privat.</p></div></article>
+<article class="support-card" data-support-category="keselamatan"><div class="support-body"><small>HALAMAN 10 / IJS 2026</small><h4>LOTO</h4><p>Lock Out Tag Out</p><p class="private-doc-label">Dokumen asli tersedia untuk verifikasi secara privat.</p></div></article>
+<article class="support-card" data-support-category="darurat"><div class="support-body"><small>HALAMAN 11 / IJS 2026</small><h4>Emergency Response Plan</h4><p>Rencana Tanggap Darurat</p><p class="private-doc-label">Dokumen asli tersedia untuk verifikasi secara privat.</p></div></article>
+<article class="support-card" data-support-category="sistem"><div class="support-body"><small>HALAMAN 12 / IJS 2026</small><h4>CSMS</h4><p>Contractor Safety Management System</p><p class="private-doc-label">Dokumen asli tersedia untuk verifikasi secara privat.</p></div></article>
+<article class="support-card" data-support-category="risiko"><div class="support-body"><small>HALAMAN 13 / IJS 2026</small><h4>Job Safety Analysis</h4><p>Analisis Keselamatan Kerja (JSA)</p><p class="private-doc-label">Dokumen asli tersedia untuk verifikasi secara privat.</p></div></article>
+<article class="support-card" data-support-category="keselamatan"><div class="support-body"><small>HALAMAN 14 / IJS 2026</small><h4>Basic Safety Leadership</h4><p>Pelatihan Dasar Kepemimpinan Keselamatan</p><p class="private-doc-label">Dokumen asli tersedia untuk verifikasi secara privat.</p></div></article>
+<article class="support-card" data-support-category="darurat"><div class="support-body"><small>HALAMAN 15 / IJS 2026</small><h4>Basic Fire Fighting</h4><p>Pelatihan Dasar Penanganan Kebakaran</p><p class="private-doc-label">Dokumen asli tersedia untuk verifikasi secara privat.</p></div></article>
+<article class="support-card" data-support-category="darurat"><div class="support-body"><small>HALAMAN 16 / IJS 2026</small><h4>Basic First Aid</h4><p>Pelatihan Dasar Pertolongan Pertama</p><p class="private-doc-label">Dokumen asli tersedia untuk verifikasi secara privat.</p></div></article>
+<article class="support-card" data-support-category="risiko"><div class="support-body"><small>HALAMAN 17 / IJS 2026</small><h4>Accident Investigation</h4><p>Investigasi Kecelakaan</p><p class="private-doc-label">Dokumen asli tersedia untuk verifikasi secara privat.</p></div></article>
+<article class="support-card" data-support-category="keselamatan"><div class="support-body"><small>HALAMAN 18 / IJS 2026</small><h4>Safety Man</h4><p>Pelatihan Keselamatan</p><p class="private-doc-label">Dokumen asli tersedia untuk verifikasi secara privat.</p></div></article>
+<article class="support-card" data-support-category="keselamatan"><div class="support-body"><small>HALAMAN 19 / IJS 2026</small><h4>Safety Officer</h4><p>Pelatihan Keselamatan</p><p class="private-doc-label">Dokumen asli tersedia untuk verifikasi secara privat.</p></div></article>
+<article class="support-card" data-support-category="keselamatan"><div class="support-body"><small>HALAMAN 20 / IJS 2026</small><h4>Dasar K3 Lingkungan Kerja</h4><p>Basic Occupational Health &amp; Safety Environment</p><p class="private-doc-label">Dokumen asli tersedia untuk verifikasi secara privat.</p></div></article>
+</div>
+<p class="cert-privacy-note">Versi publik ini tidak menampilkan scan sertifikat atau nomor dokumen. Simpan dokumen asli secara privat dan gunakan salinan yang sudah disamarkan jika diperlukan untuk publikasi.</p>
+<div class="education-line"><span aria-hidden="true" class="edu-symbol">🎓</span><div><strong>S1 Ilmu Fisika — Universitas Negeri Manado</strong><span>Pendidikan formal • 2016–2021</span></div></div>
+</div>
+</section>
+<section aria-labelledby="org-title" class="block" id="organisasi" style="padding-top:0"><div class="container"><span class="section-label">07 / KEGIATAN ORGANISASI</span><h2 class="section-title" id="org-title">Pengalaman organisasi.</h2><div class="org-list"><article class="org"><span class="org-number">01</span><div><h3>Minahasa Young Adventist Choir</h3><p>President • 2020–2023</p></div></article><article class="org"><span class="org-number">02</span><div><h3>Pemuda Advent Gabungan Nusantara Indonesia</h3><p>Koordinator Bidang • 2020–2021</p></div></article></div><p class="soft-skills"><strong>Soft skills:</strong> komunikasi, koordinasi, problem solving, pengambilan keputusan, multitasking, public speaking, disiplin, dan integritas.</p></div></section>
+<section aria-labelledby="contact-title" class="contact-wrap" id="kontak"><div class="container"><div class="contact-card"><div><span class="section-label">08 / MARI TERHUBUNG</span><h2 id="contact-title">Punya peluang<br/>untuk dibicarakan?</h2><p>Saya terbuka untuk peluang profesional di bidang K3/HSE, khususnya Safety Officer, penerapan SMK3, inspeksi keselamatan, identifikasi dan pengendalian risiko, serta dukungan keselamatan operasional pertambangan.</p><div class="contact-actions"><a class="button button-light" href="https://wa.me/6282147898321" rel="noopener noreferrer" target="_blank">Chat WhatsApp ↗</a><a class="button button-outline" href="mailto:kevinclieff98@gmail.com" style="color:white;border-color:#739686">Kirim Email ↗</a></div></div><div class="contact-info"><div class="contact-info-item"><small>Email</small><a href="mailto:kevinclieff98@gmail.com">kevinclieff98@gmail.com</a></div><div class="contact-info-item"><small>WhatsApp</small><a href="https://wa.me/6282147898321" rel="noopener noreferrer" target="_blank">+62 821-4789-8321 ↗</a></div><div class="contact-info-item"><small>Fokus profesional</small><span style="font-size:13px;color:#dceadf">K3 / HSE • Safety • Pertambangan</span></div></div></div></div></section>
+</main>
+<footer><div class="container footer-inner"><span>© 2026 Kevin Clieff Emor, S.Si • Profil Profesional</span><a href="#beranda">KEMBALI KE ATAS ↑</a></div></footer>
+<script>
+  (function(){
+    const toggle = document.getElementById('nav-toggle');
+    const links = document.getElementById('nav-links');
+    if(!toggle||!links) return;
+    function setOpen(open){ links.classList.toggle('open',open); toggle.setAttribute('aria-expanded',String(open)); toggle.setAttribute('aria-label',open?'Tutup menu navigasi':'Buka menu navigasi'); }
+    toggle.addEventListener('click',function(){setOpen(!links.classList.contains('open'));});
+    links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setOpen(false);});});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false);});
+    window.addEventListener('resize',function(){if(window.innerWidth>760)setOpen(false);});
+  })();
+</script>
+<div aria-label="Pratinjau foto pelatihan" aria-modal="true" class="pjk3-lightbox" hidden="" id="pjk3-lightbox" role="dialog"><button class="pjk3-lightbox-close" id="pjk3-lightbox-close" type="button">Tutup ✕</button><div class="pjk3-lightbox-content"><img alt="" id="pjk3-lightbox-img"/><p id="pjk3-lightbox-caption"></p></div></div>
+<script>
+(function () {
+  'use strict';
+  const dataPJK3 = {
+    namaLembaga: 'PT INDOTAMA JASA SERTIFIKASI (IJS)',
+    lokasi: 'Hotel Yulia, Kota Gorontalo',
+    angkatanIJS: '426',
+    angkatanGorontalo: '3',
+    tanggalMulai: '2026-08-24',
+    tanggalSelesai: '2026-09-04'
+  };
+  const byId = id => document.getElementById(id);
+  function setText(id, value, fallback) { const node=byId(id); if(node)node.textContent=value || fallback; }
+  function parseDate(value) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return null;
+    const parsed = new Date(value + 'T00:00:00Z');
+    return !isNaN(parsed.getTime()) && parsed.toISOString().slice(0,10)===value ? parsed : null;
+  }
+  function formatDate(value) {
+    const date=parseDate(value);
+    return date ? new Intl.DateTimeFormat('id-ID',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(date) : 'Tanggal belum diisi';
+  }
+  setText('pjk3-name',dataPJK3.namaLembaga,'Nama PJK3 belum diisi');
+  setText('pjk3-location',dataPJK3.lokasi,'Lokasi penyelenggaraan belum diisi');
+  setText('pjk3-batch-ijs',dataPJK3.angkatanIJS,'Belum diisi');
+  setText('pjk3-batch-gorontalo',dataPJK3.angkatanGorontalo,'Belum diisi');
+  setText('pjk3-start',formatDate(dataPJK3.tanggalMulai));
+  setText('pjk3-end',formatDate(dataPJK3.tanggalSelesai));
+  const start=parseDate(dataPJK3.tanggalMulai),end=parseDate(dataPJK3.tanggalSelesai);
+  if(start && end && end>=start){
+    byId('pjk3-duration').textContent=(Math.round((end-start)/86400000)+1)+' hari (kalender)';
+    byId('pjk3-duration-wrap').hidden=false;
+  }
+
+  const cards=document.querySelectorAll('.pjk3-photo-card');
+  const viewer=byId('pjk3-lightbox'),viewerImg=byId('pjk3-lightbox-img'),viewerCaption=byId('pjk3-lightbox-caption');
+  const viewerClose=byId('pjk3-lightbox-close');
+  let lastPhotoButton=null;
+  function closeViewer() { viewer.hidden=true;document.body.classList.remove('pjk3-modal-open');viewerImg.removeAttribute('src');if(lastPhotoButton)lastPhotoButton.focus(); }
+  cards.forEach(card=>{
+    const img=card.querySelector('img'),button=card.querySelector('button');
+    if(!img || !button) return;
+    function ready(){ if(img.naturalWidth>0){card.classList.add('has-photo');button.disabled=false;} }
+    img.addEventListener('load',ready);
+    img.addEventListener('error',()=>{card.classList.remove('has-photo');button.disabled=true;});
+    if(img.complete)ready();
+    button.addEventListener('click',()=>{
+      if(button.disabled)return;
+      lastPhotoButton=button;
+      viewerImg.src=img.currentSrc || img.src;
+      viewerImg.alt=img.alt;
+      viewerCaption.textContent=card.querySelector('h4') ? card.querySelector('h4').textContent : '';
+      viewer.hidden=false;
+      document.body.classList.add('pjk3-modal-open');
+      viewerClose.focus();
+    });
+  });
+  viewerClose.addEventListener('click',closeViewer);
+  viewer.addEventListener('click',e=>{if(e.target===viewer)closeViewer();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape' && !viewer.hidden)closeViewer();});
+
+  const supportFilters = document.querySelectorAll('.support-filter');
+  const supportCards = document.querySelectorAll('.support-card');
+  supportFilters.forEach(btn=>btn.addEventListener('click',()=>{
+    const selected=btn.dataset.supportFilter;
+    supportFilters.forEach(b=>{const active=b===btn;b.classList.toggle('is-active',active);b.setAttribute('aria-pressed',String(active));});
+    supportCards.forEach(card=>{card.hidden=selected!=='semua' && card.dataset.supportCategory!==selected;});
+  }));
+})();
+</script>
+</body>
+</html>
